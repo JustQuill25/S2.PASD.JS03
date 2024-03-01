@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+class PersegiPanjang {
+    int panjang;
+    int lebar;
+
+    public PersegiPanjang(int p, int l) {
+        panjang = p;
+        lebar = l;
+    }
+
+    public PersegiPanjang() {
+    }
+
+    public int hitungLuas() {
+        return panjang * lebar;
+    }
+
+    public int hitungKeliling() {
+        return 2 * (panjang + lebar);
+    }
+}
+
+public class ProgramPersegiPanjang {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int jumlahPersegiPanjang;
+
+        System.out.print("Masukkan jumlah persegi panjang: ");
+        jumlahPersegiPanjang = scanner.nextInt();
+        scanner.nextLine(); // Membersihkan newline dari input sebelumnya
+
+        PersegiPanjang[] daftarPersegiPanjang = new PersegiPanjang[jumlahPersegiPanjang];
+
+        for (int i = 0; i < jumlahPersegiPanjang; i++) {
+            System.out.println("\nMasukkan data persegi panjang ke-" + (i + 1));
+            System.out.print("Masukkan panjang: ");
+            int panjang = scanner.nextInt();
+            System.out.print("Masukkan lebar: ");
+            int lebar = scanner.nextInt();
+
+            daftarPersegiPanjang[i] = new PersegiPanjang(panjang, lebar);
+        }
+
+        System.out.println("\nData Persegi Panjang:");
+
+        for (int i = 0; i < daftarPersegiPanjang.length; i++) {
+            PersegiPanjang persegiPanjang = daftarPersegiPanjang[i];
+            System.out.println("Data Persegi Panjang ke-" + (i + 1));
+            System.out.println("Panjang: " + persegiPanjang.panjang);
+            System.out.println("Lebar: " + persegiPanjang.lebar);
+            System.out.println("Luas: " + persegiPanjang.hitungLuas());
+            System.out.println("Keliling: " + persegiPanjang.hitungKeliling());
+            System.out.println("----------------------");
+        }
+
+        scanner.close();
+    }
+}
